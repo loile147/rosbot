@@ -2,30 +2,25 @@
 <package format="2">
   <name>mybot</name>
   <version>1.0.0</version>
-  <description>The robot main package</description>
+  <description>The nox robot main package</description>
 
-  <maintainer email="leducloi1407@gmail.com">loile</maintainer>
+  <maintainer email="leducloi@gmail.com">loile</maintainer>
 
   <license>GPLv3</license>
 
-  <url type="website"></url>
-
   <buildtool_depend>catkin</buildtool_depend>
-  
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>teb_local_planner</build_depend>
   <build_depend>robot_state_publisher</build_depend>
   <build_depend>urdf</build_depend>
   
-  
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <build_export_depend>teb_local_planner</build_export_depend>
   <build_export_depend>robot_state_publisher</build_export_depend>
   <build_export_depend>urdf</build_export_depend>
-  
-  
+
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>teb_local_planner</exec_depend>

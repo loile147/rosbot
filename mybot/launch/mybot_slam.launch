@@ -5,5 +5,5 @@
 	<node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen"/>
 
 				<!--  ************* Visualisation **************  -->
-	<!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find nox)/cfg/rviz_slam_base_local_planner.rviz" required="true" /-->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find mybot)/config/rviz_slam.rviz" required="true" />
 </launch>
