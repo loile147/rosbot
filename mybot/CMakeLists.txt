@@ -23,4 +23,5 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
-
+add_executable(mybot_controller src/mybot_controller.cpp)
+target_link_libraries(mybot_controller ${catkin_LIBRARIES})
