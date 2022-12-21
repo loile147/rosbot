@@ -18,13 +18,6 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES nox
-#  CATKIN_DEPENDS gmapping navigation nox_description ros_control ros_controllers roscpp rospy teb_local_planner
-#  DEPENDS system_lib
-)
-
 
 include_directories(
 # include
