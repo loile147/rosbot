@@ -82,17 +82,23 @@ void handle_cmd(const geometry_msgs::Twist& vel){
 	linear_speed_req = constrain(linear_speed_req, -SPEED_MAX, SPEED_MAX);
 	angular_speed_req = constrain(angular_speed_req, -3, 3);
 
-	speed_left_req = linear_speed_req - angular_speed_req*(WHEEL_BASE/2);
-	if(abs(speed_left_req) < SPEED_MIN)
-		speed_left_req = 0;
-	else
-		speed_left_req = constrain(speed_left_req, -SPEED_MAX, SPEED_MAX); 
+  	if(abs(linear_speed_req) < 0.03 && abs(angular_speed_req) < 0.8){
+		speed_left_req = -sgn(angular_speed_req)*SPEED_MIN;
+		speed_right_req = sgn(angular_speed_req)*SPEED_MIN;
+  	} 
+	else{
+		speed_left_req = linear_speed_req - angular_speed_req*(WHEEL_BASE/2);
+		if(abs(speed_left_req) < SPEED_MIN)
+			speed_left_req = 0;
+		else
+			speed_left_req = constrain(speed_left_req, -SPEED_MAX, SPEED_MAX); 
 
-	speed_right_req = linear_speed_req + angular_speed_req*(WHEEL_BASE/2);
-	if(abs(speed_right_req) < SPEED_MIN)
-		speed_right_req = 0;
-	else
-		speed_right_req = constrain(speed_right_req, -SPEED_MAX, SPEED_MAX); 
+		speed_right_req = linear_speed_req + angular_speed_req*(WHEEL_BASE/2);
+		if(abs(speed_right_req) < SPEED_MIN)
+			speed_right_req = 0;
+		else
+			speed_right_req = constrain(speed_right_req, -SPEED_MAX, SPEED_MAX);
+	}
 }
 
 ros::Subscriber<geometry_msgs::Twist> vel_sub("cmd_vel", handle_cmd);   	//create a subscriber to ROS topic for velocity commands (will execute "handle_cmd" function when receiving data)

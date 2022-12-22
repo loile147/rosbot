@@ -3,26 +3,23 @@ DWAPlannerROS:
   odom_topic: odom
 
 # Robot Configuration Parameters
-  max_vel_x: 0.3
-  min_vel_x: -0.1
+  max_vel_x: 0.2
+  min_vel_x: -0.2
 
-  max_vel_y: 0.0            # 0 for non-holonomic robot
-  min_vel_y: 0.0            # 0 for non-holonomic robot
 
 # The velocity when robot is moving in a straight line
-  max_trans_vel:  0.3
-  min_trans_vel:  0.05
+  max_trans_vel:  0.2
+  min_trans_vel:  -0.2
 
-  max_rot_vel: 1.6
-  min_rot_vel: 0.2
+  max_rot_vel: 2.0
+  min_rot_vel: 0.8
 
   acc_lim_x: 1.0
-  acc_lim_y: 0.0
   acc_lim_theta: 3.2 
 
 # Goal Tolerance Parametes
-  xy_goal_tolerance: 0.1
-  yaw_goal_tolerance: 0.17
+  xy_goal_tolerance: 0.15
+  yaw_goal_tolerance: 0.2
   latch_xy_goal_tolerance: false
 
 # Forward Simulation Parameters
