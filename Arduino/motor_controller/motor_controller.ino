@@ -43,8 +43,8 @@ const double WHEEL_BASE = 0.2;				//Distance between 2 wheels in meters
 const double ENCODER_PER_ROTATION = 980;		//Encoder ticks or counts per rotation
 const double SPEED_MAX = 0.18;				//Max speed in m/s
 const double SPEED_MIN = 0.08;				//Min speed in m/s
-const int LINEAR_PARAM_LEFT[] = {340, 20}; // PWM = K*v + b. This value was obtained by plotting the wheel speed in relation to the PWM motor command (the value is the constant of the linear function)
-const int LINEAR_PARAM_RIGHT[] = {330, 25}; // PWM = K*v + b. This value was obtained by plotting the wheel speed in relation to the PWM motor command (the value is the constant of the linear function)
+const int LINEAR_PARAM_LEFT[] = {340, 21}; // PWM = K*v + b. This value was obtained by plotting the wheel speed in relation to the PWM motor command (the value is the constant of the linear function)
+const int LINEAR_PARAM_RIGHT[] = {330, 27}; // PWM = K*v + b. This value was obtained by plotting the wheel speed in relation to the PWM motor command (the value is the constant of the linear function)
 
 double linear_speed_req = 0;				//Desired linear speed for the robot, in m/s
 double angular_speed_req = 0;				//Desired angular speed for the robot, in rad/s
@@ -82,20 +82,20 @@ void handle_cmd(const geometry_msgs::Twist& vel){
 	linear_speed_req = constrain(linear_speed_req, -SPEED_MAX, SPEED_MAX);
 	angular_speed_req = constrain(angular_speed_req, -3, 3);
 
-  	if(abs(linear_speed_req) < 0.03 && abs(angular_speed_req) < 0.8){
+  	if(abs(linear_speed_req) < 0.02 && abs(angular_speed_req) < 0.8){
 		speed_left_req = -sgn(angular_speed_req)*SPEED_MIN;
 		speed_right_req = sgn(angular_speed_req)*SPEED_MIN;
   	} 
 	else{
 		speed_left_req = linear_speed_req - angular_speed_req*(WHEEL_BASE/2);
 		if(abs(speed_left_req) < SPEED_MIN)
-			speed_left_req = 0;
+			speed_left_req = sgn(speed_left_req)*SPEED_MIN;
 		else
 			speed_left_req = constrain(speed_left_req, -SPEED_MAX, SPEED_MAX); 
 
 		speed_right_req = linear_speed_req + angular_speed_req*(WHEEL_BASE/2);
 		if(abs(speed_right_req) < SPEED_MIN)
-			speed_right_req = 0;
+			speed_right_req = sgn(speed_right_req)*SPEED_MIN;
 		else
 			speed_right_req = constrain(speed_right_req, -SPEED_MAX, SPEED_MAX);
 	}
