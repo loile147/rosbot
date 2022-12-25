@@ -2,8 +2,8 @@ TrajectoryPlannerROS:
   # for details see: http://www.ros.org/wiki/base_local_planner
   odom_topic: odom
   
-  max_vel_x: 0.2
-  min_vel_x: -0.2
+  max_vel_x: 0.18
+  min_vel_x: -0.18
   #max_rotational_vel: 2   # 0.1 rad/sec = 5.7 degree/sec
   #min_in_place_rotational_vel: 0.8
   max_vel_theta: 2.0
