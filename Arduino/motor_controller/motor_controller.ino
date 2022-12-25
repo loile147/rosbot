@@ -44,7 +44,7 @@ const double ENCODER_PER_ROTATION = 980;		//Encoder ticks or counts per rotation
 const double SPEED_MAX = 0.18;				//Max speed in m/s
 const double SPEED_MIN = 0.08;				//Min speed in m/s
 const int LINEAR_PARAM_LEFT[] = {340, 21}; // PWM = K*v + b. This value was obtained by plotting the wheel speed in relation to the PWM motor command (the value is the constant of the linear function)
-const int LINEAR_PARAM_RIGHT[] = {330, 27}; // PWM = K*v + b. This value was obtained by plotting the wheel speed in relation to the PWM motor command (the value is the constant of the linear function)
+const int LINEAR_PARAM_RIGHT[] = {330, 26}; // PWM = K*v + b. This value was obtained by plotting the wheel speed in relation to the PWM motor command (the value is the constant of the linear function)
 
 double linear_speed_req = 0;				//Desired linear speed for the robot, in m/s
 double angular_speed_req = 0;				//Desired angular speed for the robot, in rad/s

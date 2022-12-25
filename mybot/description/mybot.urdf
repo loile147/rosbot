@@ -2,7 +2,7 @@
 	<robot name="mybot">
 		
 		<material name="white">
-        <color rgba="1 1 1 1"/>
+        	<color rgba="1 1 1 1"/>
 		</material>
 
 		<material name="orange">
@@ -37,7 +37,7 @@
 		        <geometry>
 		            <cylinder radius="0.12" length="0.15"/>
 		        </geometry>
-		        <material name="white"/>
+		        <material name="orange"/>
 		    </visual>
 		</link>
 		
